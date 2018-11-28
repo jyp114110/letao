@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
-  
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
 
 </head>
 
@@ -37,8 +35,8 @@
           <i class="glyphicon glyphicon-list"></i>
           <span>分类管理</span>
         </a>
-        <div class="child" style="display:none">
-          <a href="first.html">一级分类</a>
+        <div class="child" style="display:block">
+          <a href="first.html" class="active">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
       </li>
@@ -59,7 +57,7 @@
       <a href="#" class="icon_left pull-left ">
         <i class="glyphicon glyphicon-align-justify"></i>
       </a>
-      <a href="#" class="icon_right pull-right " data-toggle="modal" data-target="#myModal">
+        <a href="#" class="icon_right pull-right " data-toggle="modal" data-target="#myModal">
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
     </div>
@@ -70,46 +68,39 @@
         <li class="active">首页</li>
       </ol>
       <!-- 页面主要内容 -->
-      <div class="content">
-        <div class="echarts-left pull-left"></div>
-        <div class="echarts-right pull-right"></div>
-      </div>
+      <div class="content"></div>
     </div>
   </div>
-
-
-
-  <!-- 公共模态框  -->
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-        </div>
-        <div class="modal-body red">
-          <i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出管理系统吗？</span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary btn-logout">退出</button>
+    <!-- 公共模态框  -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          </div>
+          <div class="modal-body red">
+            <i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出管理系统吗？</span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary btn-logout">退出</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+
 
 
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
-  <script src="./lib/echarts/echarts.common.min.js"></script>
   <script src="./js/isLogin.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./js/index.js"></script>
-  
-
+ >
 </body>
 
 </html>
