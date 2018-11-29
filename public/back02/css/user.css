@@ -1,0 +1,5 @@
+.table.user_table th,
+.table.user_table td {
+  vertical-align: middle;
+  text-align: center;
+}

@@ -1,50 +1,61 @@
-// echarts 绘图
+var myCharts1 = echarts.init(document.querySelector('.echarts_left'));
+var myCharts2 = echarts.init(document.querySelector('.echarts_right'));
+console.log(myCharts2);
+var option1 = {
+  //标题
+  title: {
+    // 标题文本
+    text: '2018年黑马31期班级人数'
+  },
+  // 提示框
+  tooltip: {},
+  // 图例组建
+  legend: {
+    data: ['人数','年龄']
+  },
+  xAxis: {
+    data: ['男','女']
+  },
+  yAxis: {},
+  series: [{
+    name: '人数',
+    type: 'bar',
+    data: [29,44]
+  },{
+    name:"年龄",
+    type:'line',
+    data:[28,18]
+  }]
+}
 
 
+myCharts1.setOption(option1);
 
-$(function(){
-  var myChart1 = echarts.init(document.querySelector('.content .echarts-left'));
+var option2 ={
 
-  var options1 = {
+    // 标题
     title: {
-      text: 'ECharts 入门示例'
-    },
-    tooltip: {},
-    legend: {
-      data: ['销量']
-    },
-    xAxis: {
-      data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-    },
-    yAxis: {},
-    series: [{
-      name: '销量',
-      type: 'bar',
-      data: [5, 20, 36, 10, 10, 20]
-    }, {
-      name: '销量',
-      type: 'line',
-      data: [5, 20, 36, 10, 10, 20]
-    }]
-
-  };
-
-  myChart1.setOption(options1);
-
-  var myChart2 = echarts.init(document.querySelector('.content .echarts-right'));
-  var options2 = {
-    title: {
+      // 主标题文本
       text: '某站点用户访问来源',
+      // 副标题文本
       subtext: '纯属虚构',
+      // 位置 水平居中
       x: 'center'
     },
+    // 提示框组建
     tooltip: {
+      // 触发条件
       trigger: 'item',
+      // {a} 系列名称  {b} 数据项名称 {c} 数值 {d} 百分比
       formatter: "{a} <br/>{b} : {c} ({d}%)"
     },
+    //  图例组件
     legend: {
+      // 方向：垂直
       orient: 'vertical',
+      // 位置： 靠左
       left: 'left',
+      // 图例
       data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
     },
     series: [
@@ -69,9 +80,8 @@ $(function(){
         }
       }
     ]
-  }
+};
 
-  myChart2.setOption(options2);
+myCharts2.setOption(option2);
 
 
-})
