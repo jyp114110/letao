@@ -83,6 +83,9 @@ $(function(){
           $('#firstModal').modal('hide');
           currentPage = 1;
           render();
+
+          //  重置表单
+          $('#firstForm').data('bootstrapValidator').resetForm(true);
         }
         
       }
