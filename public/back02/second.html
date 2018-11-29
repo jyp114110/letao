@@ -60,10 +60,31 @@
         <li><a href="index.html">管理系统</a></li>
         <li class="active">首页</li>
       </ol>
-      <div class="content"></div>
+      <div class="content">
+        <button class="btn btn-default">添加分类</button>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名</th>
+              <th>二级分类LOGO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 模板引擎 坑 -->
+          </tbody>
+        </table>
+
+        <!-- 分页 -->
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
+      </div>
     </div>
   </div>
-
+  <!-- 模态框 动态 -->
   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -83,13 +104,29 @@
   </div>
 
 
+  <!-- 模板引擎 -->
+  <script type="text/html" id="secondTmp">
+    {{each rows v i }}
+      <tr>
+        <td>{{ i+1 + (page -1 ) *5}}</td>
+        <td>{{v.categoryName}}</td>
+        <td>{{v.brandName}}</td>
+        <td><img src="{{v.brandLogo}}" height= '50px'></td>
+      </tr>
+    {{ /each }}
+  
+  </script>
+
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./js/second.js"></script>
 
 </body>
 
