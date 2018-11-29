@@ -47,6 +47,8 @@ $(function(){
   })
   //  ajax 请求
   $('#form').on('success.form.bv',function(e){
+    console.log('1');
+    
     // 阻止默认跳转
     e.preventDefault();
     $.ajax({

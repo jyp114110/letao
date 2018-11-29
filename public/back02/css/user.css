@@ -1,5 +1,5 @@
-.table.user_table th,
-.table.user_table td {
+.table.table-bordered th,
+.table.table-bordered td {
   vertical-align: middle;
   text-align: center;
 }
