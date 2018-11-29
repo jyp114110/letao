@@ -8,7 +8,7 @@ $.ajax({
       location.href = 'login.html';
     }
     if(info.success){
-      console.log('已登录');
+      // console.log('已登录');
       
     }
 

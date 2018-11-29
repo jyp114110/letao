@@ -27,7 +27,6 @@
 $( document ).ajaxStart(function() {
   // 开启进度条
   NProgress.start();
-  console.log(1);
 })
 
 $( document ).ajaxStop(function() {
@@ -36,7 +35,6 @@ $( document ).ajaxStop(function() {
     // 关闭进度条
     NProgress.done();
   }, 500)
-  console.log(2)
 });
 
 
