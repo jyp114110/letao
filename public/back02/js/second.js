@@ -13,7 +13,7 @@ $(function(){
       },
       dataType: 'json',
       success: function (info) {
-        console.log(info);
+        // console.log(info);
         var htmlStr = template('secondTmp', info)
         $('tbody').html(htmlStr);
 
@@ -66,7 +66,7 @@ $(function(){
     // console.log(txt);
     $('#dropdownText').text(txt);
     var id = $(this).data("id");
-    console.log(id);
+    // console.log(id);
     $('#categroyId').val(id);
     // console.log($('#categroyId').val());
    
@@ -80,12 +80,12 @@ $(function(){
 
   });
 
-
+  //  图片上传
   $('#fileUpload').fileupload({
     dataType:'json',
     done:function(e,data){
       var picObj = data.result;
-      console.log(picObj);
+      // console.log(picObj);
       var picUrl = picObj.picAddr;
       $('#imgBox img').attr('src',picUrl);
       $('#imgUrl').val(picUrl);
@@ -96,7 +96,7 @@ $(function(){
 
   });
 
-
+  // 表单校验
   $('#form').bootstrapValidator({
     // 重置排除项, 都校验, 不排除
     excluded: [],
@@ -132,10 +132,37 @@ $(function(){
         }
       }
     }
+  });
+
+
+//  注册表单校验成功事件，发送 ajax请求
+$('#form').on('success.form.bv',function(e){
+  e.preventDefault();
+  $.ajax({
+    type:'post',
+    url:'/category/addSecondCategory',
+    data:$('#form').serialize(),
+    dataType:'json',
+    success: function(info){
+      // console.log(info);
+      // 关闭模态框
+      $('#secondModal').modal('hide');
+      // 重新赋值当前页
+      currentPage = 1;
+      // 重新渲染第一页
+      render();
+
+      // 重置表单域
+      $('#form').data('bootstrapValidator').resetForm(true);
+      //  重置 文本框 和 图片
+      $('#dropdownText').text('请输入一级分类');
+      $('#imgBox img').attr('src','./images/none.png');
+    }
+    
+
+
   })
-
-
-
+})
 
  
 
