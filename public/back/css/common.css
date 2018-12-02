@@ -113,3 +113,9 @@ ul {
 .topbar.hidemenu {
   padding-left: 0px;
 }
+
+.table-bordered.table-hover th,
+ .table-bordered.table-hover td{
+  text-align: center;
+  vertical-align: middle;
+}
