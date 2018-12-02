@@ -68,7 +68,31 @@
         <li class="active">首页</li>
       </ol>
       <!-- 页面主要内容 -->
-      <div class="content"></div>
+      <div class="content">
+        <button class="btn btn-default" id="addBtn">添加分类</button>
+
+        <table class="table table-bordered table-hover mt-20">
+          <thead>
+            <tr>
+                 
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <!-- 模板引擎 坑 -->
+
+          </tbody>
+        </table>
+
+        <!-- 分页 -->
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
+      </div>
     </div>
   </div>
     <!-- 公共模态框  -->
@@ -91,16 +115,100 @@
       </div>
     </div>
 
+    <!-- 模态框 添加分类 -->
+    <div class="modal fade" id="secondModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+          <form id="form">
+            <div class="modal-body ">
+    
+              <div class="form-group">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-expanded="true">
+                    <span id="dropdownText">请输入一级分类</span>
+                    <span class="caret"></span>
+                  </button>
+    
+                  <ul class="dropdown-menu">
+                    <!-- 模板引擎 坑 -->
+                  </ul>
+    
+    
+                </div>
+                <!-- 隐藏域 -->
+                <input type="hidden" name="categoryId" id="categroyId">
+                <input type="hidden" name="hot" value="1">
+    
+              </div>
+    
+    
+              <div class="form-group has-feedback">
+                <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+              </div>
+    
+              <div class="form-group">
+                <label for="fileupload" class="btn btn-default">
+                  上传图片
+                </label>
+                <input type="file" name="pic1" id="fileupload" data-url="/category/addSecondCategoryPic" style="display:none">
+              </div>
+    
+              <div class="form-group" id="imgBox">
+                <img src="./images/none.png" width="100px">
+    
+                <input type="hidden" name="brandLogo" id="imgUrl">
+              </div>
+    
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="submit" class="btn btn-primary btn-confirm">添加</button>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
+
+
+    <!-- 模板引擎 -->
+    <script type="text/html" id="secondTmp">
+      {{each rows v i}}
+        <tr>
+          <td>{{i+1 + (page-1)*size }}</td>
+          <td>{{v.categoryName}}</td>
+          <td>{{v.brandName}}</td>
+          <td><img src="{{v.brandLogo}}" height="50px"></td>
+        </tr>
+      {{/each}}
+    </script>
+
+    <!-- 模板引擎 -->
+    <script type="text/html" id="dropdown">
+        {{each rows v i}}
+      <li><a tabindex="-1" href="#" data-id = {{v.id}}>{{v.categoryName}}</a></li>
+      {{/each}}
+    </script>
 
 
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <!-- <script src="./js/isLogin.js"></script> -->
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./js/second.js"></script>
   
 </body>
 
