@@ -231,12 +231,15 @@ $(function(){
         if(info.success){
           // 关闭模态kuang
           $('#productModal').modal('hide');
-          
+          currentPage = 1;
+          render();
           // 重置
           $('#form').data('bootstrapValidator').resetForm(true);
           $('#dropdownText').text('请输入二级分类');
           $('#imgBox img').remove();
           picArr = [];
+
+
         }
         
       }
@@ -244,4 +247,4 @@ $(function(){
   });
   
 
-})
+});
