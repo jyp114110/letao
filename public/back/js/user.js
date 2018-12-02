@@ -1,6 +1,8 @@
 $(function(){
    var  currentPage = 1;
    var  pageSize = 5;
+   var currentId;
+   var isDelete;
   //  页面渲染
   render();
   function render(){
@@ -34,6 +36,31 @@ $(function(){
     })
   };
 
+  // 用户管理状态
+  $('tbody').on('click','.btn',function(){
+    $('#userModal').modal('show');
+    currentId = $(this).parent().data('id');
+    isDelete = $(this).hasClass('btn-danger') ? 0 : 1;
+    console.log(isDelete);
+    
+  });
+  $('.add-confirm').on('click',function(){
+    $.ajax({
+      type:'post',
+      url:'/user/updateUser',
+      data:{
+        id: currentId,
+        isDelete: isDelete,
+      },
+      dataType:'json',
+      success:function(info){
+        if(info.success){
+          $('#userModal').modal('hide');
+          render();
+        }
+      }
+    })
+  })
 
   
 
